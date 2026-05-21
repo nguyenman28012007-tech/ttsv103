@@ -5,22 +5,21 @@
    font-size:13pt;
    line-height: 2;
 }
-#title {
+#titlel
     text-align: center;
     color: green;
-}	
+	
 .container {
     width: 920px;
     margin: 5px auto;
     border: 2px solid #666; 
-	background-color: lightblue;
+	background-color: pink;
     padding: 5px;
 }	
 form#frmLogin {
     padding: 50px;
     max-width: 500px;
     width : 100% ;
-	margin:auto;
 }
 h2 {
 margin: 10px 0;
@@ -31,7 +30,7 @@ font-weight: bold;
 label {
 display: block;
 font-weight: bolder;
-color: black;
+color: purple;
 }
 .form-control{
 	width: 100%;
@@ -48,7 +47,7 @@ color: black;
 }
 input{
 	  border-radius:10px;
-	  background-color:gold;
+	  background-color:purple;
 
 }
 #txtUsername{
