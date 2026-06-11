@@ -1,56 +1,65 @@
 *{
-   margin: 0;
-   padding: 0;
-   font-family: Arial, Helvetica, sans-serif;
-   font-size:13pt;
-   line-height: 2;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13pt;
+    line-height: 2;
 }
-#title {
+
+#title{
     text-align: center;
     color: green;
-}	
-.container {
+}
+
+.container{
     width: 520px;
     margin: 5px auto;
-    border: 2px solid #666; 
-	background-color: lightblue;
+    border: 2px solid #666;
+    background-color: lightblue;
     padding: 5px;
-}	
-form#frmLogin {
+}
+
+form#frmLogin{
     padding: 50px;
     max-width: 500px;
-    width : 100% ;
-	margin:auto;
-}
-h2 {
-margin: 10px 0;
-font-size: 28px;
-font-weight: bold;
+    width: 100%;
+    margin: auto;
 }
 
-label {
-display: block;
-font-weight: bolder;
-color: black;
+h2{
+    margin: 10px 0;
+    font-size: 28px;
+    font-weight: bold;
 }
+
+label{
+    display: block;
+    font-weight: bolder;
+    color: black;
+}
+
 .form-control{
-	width: 100%;
-	margin: 4px 0px;
+    width: 100%;
+    margin: 4px 0;
 }
-.button {
-	padding: 2px; 
-	width: 100px;
-    background-color: red;
-	border-radius:15%;
-}
-.button:hover {
-	background-color:yellow;
-}
-input{
-	  border-radius:10px;
-	  background-color:gold;
 
+.button{
+    padding: 2px;
+    width: 100px;
+    background-color: red;
+    border-radius: 15%;
+    cursor: pointer; /* Hiển thị hình bàn tay khi rê chuột */
 }
+
+.button:hover{
+    background-color: yellow;
+}
+
+input{
+    border-radius: 10px;
+    background-color: gold;
+}
+
 #txtUsername{
-	font-weight:100px;
+    font-weight: 100; /* Sửa lỗi: bỏ đơn vị px */
 }
