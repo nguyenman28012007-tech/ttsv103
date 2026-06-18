@@ -1,79 +1,48 @@
-/*javascript*/
 //Khai báo một đối tượng
 const product = {
     id:"1",
-    name:" GÀ QUAY ",
+    name:"GÀ QUAY",
     price:279000,
-    description:" Gà quay mật ong da giòn...",
+    description:"GA QUAY MẬT ÔNG DA GIÒN",
     image:"../assets/images/gaquay.jpg",
     link:"chi-tiet.html"
 };
-
 const products = [
-    { 
-        id:"1",
-    name:" HAMBURGER ",
-    price:79000,
-    description:"Hamburger đậm vị Ngon trên từng thớ thịt...",
-    image:"../assets/images/hamburger.jpg",
-    link:"chi-tiet.html"
-    },
-    { 
-        id:"2",
-    name:" BÁNH MÌ ",
-    price:25000,
-    description:"Bánh mì heo quay,Da giòn rôm rốp, thịt đầy ngập răng...",
-    image:"../assets/images/banhmi.jpg",
-    link:"chi-tiet.html"
-    },
     {
-       id:"3",
+    id:"1",
+    name:"HAMBURGER",
+    price:79000,
+    description:"HAMBURGER ĐẬM VỊ NGON TRÊN TỪNG THỚ THỊT",
+    image:"../assets/images/hamburger.jpg",
+    link:"chi-tiet.html?id=1"
+    },
+
+    {
+    id:"2",
+    name:"BÁNH MÌ",
+    price:30000,
+    description:"BÁNH MÌ HEO QUAY DA GIÒN RÔM RỐP, THỊT ĐẦY NGẬP RĂNG",
+    image:"../assets/images/banhmi.jpg",
+    link:"chi-tiet.html?id=2"
+    },
+
+    {
+    id:"3",
     name:"MÌ CAY",
     price:50000,
-    description:"Sợi mì dai chuẩn Hàn đẫm trong nước dùng đậm đà...",
+    description:"SỢ MÌ DAI CHUẨN HÀN ĐẪM TRONG NƯỚC DÙNG ĐẬM ĐÀ",
     image:"../assets/images/micay.jpg",
-    link:"chi-tiet.html" 
+    link:"chi-tiet.html?id=3"
     },
-
-   {
-    id:"4",
-    name:" GÀ QUAY ",
-    price:279000,
-    description:" Gà quay mật ong da giòn...",
-    image:"../assets/images/gaquay.jpg",
-    link:"chi-tiet.html"
-   }
-];
-
-function addItemV2(product){
-    document.getElementById("product-list").innerHTML += `
-        <div class="col">
-            <div class="card product-item h-100">
-                <div class="product-image">
-                    <img class="card-img-top" src="${product.image}" alt="${product.name}">
-                </div>
-                <div class="card-body bg-light product-info">
-                    <h4 class="card-title">${product.name}</h4>
-                    <h5 class="card-text">${product.price} VNĐ</h5>
-                    <p class="card-text">${product.description}</p>
-                    <a class="btn btn-info" href="${product.link}">Xem chi tiết</a>
-                </div>
-            </div>
-        </div>
-    `;
-}
-
-function loadAllProduct(){
-    let i = 0;
-    while(i < products.length)
     {
-        addItemV2(products[i]);
-        i++;
+    id:"4",
+    name:"GÀ QUAY",
+    price:279000,
+    description:"GA QUAY MẬT ÔNG DA GIÒN",
+    image:"../assets/images/gaquay.jpg",
+    link:"chi-tiet.html?id=4"
     }
-}
-
-
-
+];
 
 
 function inBCC(n)
@@ -85,47 +54,84 @@ function inBCC(n)
         result += `${n} x ${i} = ${n*i} <br>`;
         i++;
     }
-    document.getElementById("result").innerHTML = result;
+        document.getElementById("result").innerHTML = result;
 }
+
 function addItem(name, price, description, link, image)
 {
-const item = document.createElement ("div"); 
+    const item = document.createElement("div");
+    item.setAttribute("class", "container-item");
 
-item.setAttribute("class", "container-item");
+    const containerImage = document.createElement("div");
+    containerImage.setAttribute("class", "container-image");
 
-const containerImage = document.createElement ("div");
+    const imageProduct = document.createElement("img");
+    imageProduct.setAttribute("src", image);
+    imageProduct.setAttribute("alt", name);
+    imageProduct.style.width = "100%";
+    imageProduct.style.maxWidth = "200px";
 
-containerImage.setAttribute( "class", "container-image");
+    containerImage.appendChild(imageProduct);
 
-const imageProduct = document.createElement ("img");
-imageProduct.setAttribute("src", image);
-imageProduct.setAttribute("alt", name);
-imageProduct.setAttribute("style", "width:100%; max-width:150px;");
+    const containerInfo = document.createElement("div");
+    containerInfo.setAttribute("class", "container-info");
 
-containerImage.appendChild(imageProduct);
+    // Tên sản phẩm
+    const nameProduct = document.createElement("h3");
+    nameProduct.innerHTML = name;
 
-const containerInfo = document.createElement ("div");
-containerInfo.setAttribute("class", "container-info");
+    // Giá
+    const priceProduct = document.createElement("p");
+    priceProduct.innerHTML = price;
 
-const nameProduct = document.createElement ("p");
-nameProduct.innerHTML = name;
+    // Mô tả
+    const descProduct = document.createElement("p");
+    descProduct.innerHTML = description;
 
-const priceProduct = document.createElement ("p");
-priceProduct.innerHTML = price;
+    // Link
+    const linkProduct = document.createElement("a");
+    linkProduct.innerHTML = "Xem chi tiết";
+    linkProduct.setAttribute("href", link);
 
-const descProduct = document.createElement ("p");
-descProduct.innerHTML = description;
+    containerInfo.appendChild(nameProduct);
+    containerInfo.appendChild(priceProduct);
+    containerInfo.appendChild(descProduct);
+    containerInfo.appendChild(linkProduct);
 
-const linkProduct = document.createElement ("a");
-linkProduct.innerHTML = "Xem chi tiết";
-linkProduct.setAttribute("href", link);
+    item.appendChild(containerImage);
+    item.appendChild(containerInfo);
 
-containerInfo.appendChild(nameProduct);
-containerInfo.appendChild(priceProduct);
-containerInfo.appendChild(descProduct);
-containerInfo.appendChild(linkProduct);
+    document.getElementById("container-product-list")
+            .appendChild(item);
+}
 
-item.appendChild(containerImage);
-item.appendChild(containerInfo);
-document.getElementById("container-product-list").appendChild(item);
+
+function addItemV2 (obj)
+{
+const list = document.getElementById("product-list") ;
+list.innerHTML +=`
+<div class=" col ">
+    <div class="card product-item" >
+        <div class = "product-image">
+            <img class="card-img-top" src="${obj.image}" alt="${obj.name}">
+        </div><div class="card-body bg-light product-info">
+             <h4 class = "card-title">${obj.name}</h4>
+            <h5 class = "card-text">${obj.price}</h5>
+            <p class = "card-text" >${obj.description}</p>
+            <a class = "btn btn-info" href = "${obj.link}">Xem chi tiết</a>
+         </div>
+    </div>
+</div>
+`;
+}
+
+function loadAllProducts(array)
+{
+    let i = 0;
+
+    while(i < array.length)
+    {
+        addItemV2(array[i]);
+        i++;
+    }
 }
